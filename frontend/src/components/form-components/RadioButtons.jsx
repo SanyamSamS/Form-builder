@@ -1,10 +1,11 @@
 import React from 'react';
+import './form-components.css'; 
 
 const RadioButtons = ({ properties = {} }) => {
   const { label = '', options = [] } = properties;
 
   return (
-    <div className="radio-buttons-component">
+    <div className="form-element">
       {label && <label>{label}</label>}
       <div>
         {options.length > 0 ? (

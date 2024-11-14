@@ -1,5 +1,5 @@
 import { useDrop } from 'react-dnd';
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import TextInput from '../form-components/TextInput';
 import Checkbox from '../form-components/Checkbox';
 import Textarea from '../form-components/Textarea';
@@ -9,11 +9,8 @@ import FileUpload from '../form-components/FileUpload';
 import DatePicker from '../form-components/DatePicker';
 import PropertiesPanel from '../PropertiesPanel';
 
-const Canvas = () => {
-  const [droppedComponents, setDroppedComponents] = useState([]);
-  const [selectedComponentIndex, setSelectedComponentIndex] = useState(null);
-
-  // Function to handle dropping new components into the canvas
+const Canvas = ({ droppedComponents, setDroppedComponents, selectedComponentIndex, setSelectedComponentIndex }) => {
+  
   const handleDrop = useCallback((item) => {
     const newComponent = {
       type: item.type,
@@ -25,22 +22,19 @@ const Canvas = () => {
       },
     };
     setDroppedComponents((prev) => [...prev, newComponent]);
-  }, []);
+  }, [setDroppedComponents]);
 
-  // Function to handle deleting a component
   const handleDelete = useCallback((index) => {
     setDroppedComponents((prev) => prev.filter((_, i) => i !== index));
     if (selectedComponentIndex === index) {
       setSelectedComponentIndex(null); // Close properties panel if deleted component was selected
     }
-  }, [selectedComponentIndex]);
+  }, [setDroppedComponents, selectedComponentIndex, setSelectedComponentIndex]);
 
-  // Function to close the properties panel
   const closePropertiesPanel = useCallback(() => {
     setSelectedComponentIndex(null);
-  }, []);
+  }, [setSelectedComponentIndex]);
 
-  // Function to update properties of the selected component
   const updateProperties = (newProps) => {
     setDroppedComponents((prev) =>
       prev.map((comp, i) =>
@@ -51,7 +45,6 @@ const Canvas = () => {
     );
   };
 
-  // Function to render the components based on their type
   const renderComponent = useCallback((component, index) => {
     const { type, properties } = component;
 
@@ -91,6 +84,8 @@ const Canvas = () => {
     }),
   });
 
+  console.log('dropped Can', droppedComponents);
+
   return (
     <div className="canvas-container">
       <div ref={drop} className={`canvas ${isOver ? 'hovered' : ''}`}>
@@ -100,13 +95,6 @@ const Canvas = () => {
           droppedComponents.map((component, index) => renderComponent(component, index))
         )}
       </div>
-      {selectedComponentIndex !== null && (
-        <PropertiesPanel
-          selectedComponent={droppedComponents[selectedComponentIndex]}
-          updateProperties={updateProperties}
-          closePanel={closePropertiesPanel}
-        />
-      )}
     </div>
   );
 };
