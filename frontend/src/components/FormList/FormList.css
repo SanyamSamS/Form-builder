@@ -1,0 +1,47 @@
+/* Form list container */
+.form-list-container {
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form card container */
+.form-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Styling for each form item (similar to sidebar items) */
+.form-card {
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-card:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px); /* Add some lift on hover */
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff; /* Style the form name */
+}
+
+p {
+  font-size: 14px;
+  color: #6c757d; /* Style the form description */
+}
+
+/* Optional: Add spacing between items */
+.form-card + .form-card {
+  margin-top: 10px;
+}

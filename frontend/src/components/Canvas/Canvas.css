@@ -1,0 +1,91 @@
+.canvas-container {
+  width: 75vw; /* Set fixed width to 75% of the viewport */
+  min-height: 80vh; /* Ensures it has a reasonable height, even if empty */
+  padding: 1rem;
+  background-color: #f9fafb;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Canvas inner content styling */
+.canvas {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex: 1;
+  width: 100%;
+}
+
+.component-card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 1rem;
+}
+
+.drag-handle {
+  cursor: move;
+  font-size: 1.25rem;
+  color: #888;
+  font-weight: bold;
+}
+
+.component-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-right: auto;
+}
+
+.component-content h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.component-content p {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  color: #0077ff;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.action-button:hover {
+  color: #005ecc;
+}
+
+/* Drag Handle */
+.drag-handle {
+  cursor: move;
+  font-size: 1.25rem;
+  color: #888;
+  margin-right: 1rem;
+  font-weight: bold;
+}
