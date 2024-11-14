@@ -1,13 +1,12 @@
 import React from 'react';
+import './form-components.css'; 
 
-const Checkbox = ({ properties = {} }) => {
-  const { label = '' } = properties;
-
+const Checkbox = ({ properties }) => {
   return (
-    <div className="checkbox-component">
+    <div className='form-element checkbox-group' >
       <label>
-        <input type="checkbox" />
-        {label}
+        <input type="checkbox" required={properties.required} />
+        {properties.label}
       </label>
     </div>
   );

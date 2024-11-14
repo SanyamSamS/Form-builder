@@ -1,8 +1,9 @@
+// FormList.jsx
 import React, { useState, useEffect } from 'react';
 import { listForms } from '../../apiService';
 import './FormList.css';
 
-const FormList = ({ onFormSelect }) => {
+const FormList = ({ onFormSelect, onEditForm }) => {
   const [forms, setForms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -31,12 +32,11 @@ const FormList = ({ onFormSelect }) => {
           <p>No forms found</p>
         ) : (
           forms.map((form) => (
-            <div
-              key={form._id}
-              className="form-card"
-              onClick={() => onFormSelect(form)} // Select form for viewing
-            >
+            <div key={form._id} className="form-card">
               <h3>{form.name}</h3>
+              {/* View and Edit buttons */}
+              <button onClick={() => onFormSelect(form)}>View</button>
+              <button onClick={() => onEditForm(form)}>Edit</button>
             </div>
           ))
         )}

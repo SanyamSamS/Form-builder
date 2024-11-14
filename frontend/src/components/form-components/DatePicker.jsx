@@ -1,10 +1,11 @@
 import React from 'react';
+import './form-components.css'; 
 
 const DatePicker = ({ properties = {} }) => {
   const { label = '' } = properties;
 
   return (
-    <div className="date-picker-component">
+    <div className="form-element">
       {label && <label>{label}</label>}
       <input type="date" />
     </div>

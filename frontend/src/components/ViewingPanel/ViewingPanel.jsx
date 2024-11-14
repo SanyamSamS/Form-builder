@@ -1,3 +1,4 @@
+// ViewingPanel.jsx
 import React from 'react';
 import TextInput from '../form-components/TextInput';
 import Checkbox from '../form-components/Checkbox';
@@ -9,25 +10,24 @@ import DatePicker from '../form-components/DatePicker';
 import './ViewingPanel.css';
 
 const ViewingPanel = ({ form }) => {
-  // Function to render the correct component based on the type
   const renderComponent = (component) => {
     const { type, properties } = component;
 
     switch (type) {
       case 'text-input':
-        return <TextInput {...properties} />;
+        return <TextInput properties={properties} />;
       case 'checkbox':
-        return <Checkbox {...properties} />;
+        return <Checkbox properties={properties} />;
       case 'textarea':
-        return <Textarea {...properties} />;
+        return <Textarea properties={properties} />;
       case 'select-dropdown':
-        return <SelectDropdown {...properties} />;
+        return <SelectDropdown properties={properties} />;
       case 'radio-buttons':
-        return <RadioButtons {...properties} />;
+        return <RadioButtons properties={properties} />;
       case 'file-upload':
-        return <FileUpload {...properties} />;
+        return <FileUpload properties={properties} />;
       case 'date-picker':
-        return <DatePicker {...properties} />;
+        return <DatePicker properties={properties} />;
       default:
         return null;
     }

@@ -1,10 +1,11 @@
 import React from 'react';
+import './form-components.css'; 
 
 const SelectDropdown = ({ properties = {} }) => {
   const { label = '', options = [] } = properties;
 
   return (
-    <div className="select-dropdown-component">
+    <div className="form-element">
       {label && <label>{label}</label>}
       <select>
         {options.length > 0 ? (
